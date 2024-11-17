@@ -5,7 +5,7 @@ class Lugar{
 
   method esDivertido() = self.tieneCantidadPar() && self.condicionLugarDivertido()
 
-  method tieneCantidadPar() = (nombre.lenght() % 2) == 0 //!(nombre.length() % 2)
+  method tieneCantidadPar() = nombre.length().even() //!(nombre.length() % 2)
 
   method condicionLugarDivertido() 
 }

@@ -1,1 +1,129 @@
 import vacaciones.*
+
+
+describe "Tests punto 1" {
+  test "Ciudad Divertida" {
+    const ciudad = new Ciudad(nombre = "aa",
+    cantidadDeHabitantes=110000,
+    atracciones = [1,2,3,4],
+    decibeles=0)
+
+    assert.that(ciudad.tieneCantidadPar())
+  }
+
+  test "Ciudad aburrida, letras impar" {
+    const ciudad = new Ciudad(nombre = "aaa",
+    cantidadDeHabitantes=110000,
+    atracciones = [1,2,3,4],
+    decibeles=0)
+
+    assert.notThat(ciudad.esDivertido())
+  }
+
+  test "Ciudad aburrida, pocos Habitantes" {
+    const ciudad = new Ciudad(nombre = "aa",
+    cantidadDeHabitantes=100000,
+    atracciones = [1,2,3,4],
+    decibeles=0)
+
+    assert.notThat(ciudad.esDivertido())
+  }
+
+  test "Ciudad aburrida, pocas atracciones" {
+    const ciudad = new Ciudad(nombre = "aa",
+    cantidadDeHabitantes=110000,
+    atracciones = [1,2,3],
+    decibeles=0)
+
+    assert.notThat(ciudad.esDivertido())
+  }
+
+
+  test "Pueblo divertido" {
+    const pueblo = new Pueblo(nombre="aa",
+    extension=0,
+    anioFundacion=1799,
+    provincia = "Entre Rios")
+
+    assert.that(pueblo.esDivertido())
+  }
+
+  test "Pueblo divertido, año" {
+    const pueblo = new Pueblo(nombre="aa",
+    extension=0,
+    anioFundacion=1799,
+    provincia = "Bs As")
+
+    assert.that(pueblo.esDivertido())
+  }
+
+  test "Pueblo divertido, litoral" {
+    const pueblo = new Pueblo(nombre="aa",
+    extension=0,
+    anioFundacion=1810,
+    provincia = "Entre Rios")
+
+    assert.that(pueblo.esDivertido())
+  }
+
+  test "Pueblo aburrido nombre" {
+    const pueblo = new Pueblo(nombre="aaa",
+    extension=0,
+    anioFundacion=1799,
+    provincia = "Entre Rios")
+
+    assert.notThat(pueblo.esDivertido())
+  }
+
+  test "Pueblo aburrido, año y fundacion" {
+    const pueblo = new Pueblo(nombre="aa",
+    extension=0,
+    anioFundacion=1800,
+    provincia = "Bs As")
+
+    assert.notThat(pueblo.esDivertido())
+  }
+}
+
+describe "Punto 1,balneario" {
+  test "Balneario Divertido" {
+    const bal = new Balneario(nombre= "aa",
+    marPeligroso = true,
+    metrosDePlaya = 301,
+    tienePeatonal = false
+    )
+
+    assert.that(bal.esDivertido())
+  }
+
+  test "Balneario aburrido, impar" {
+    const bal = new Balneario(nombre= "aaa",
+    marPeligroso = true,
+    metrosDePlaya = 301,
+    tienePeatonal = false
+    )
+
+    assert.notThat(bal.esDivertido())
+  }
+
+  test "Balneario aburrido, mar tranquilo" {
+    const bal = new Balneario(nombre= "aa",
+    marPeligroso = false,
+    metrosDePlaya = 301,
+    tienePeatonal = false
+    )
+
+    assert.notThat(bal.esDivertido())
+  }
+
+  test "Balneario aburrido, poca Playa" {
+    const bal = new Balneario(nombre= "aa",
+    marPeligroso = true,
+    metrosDePlaya = 300,
+    tienePeatonal = false
+    )
+
+    assert.notThat(bal.esDivertido())
+  }
+
+}
