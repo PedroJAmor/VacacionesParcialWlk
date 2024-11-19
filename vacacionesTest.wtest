@@ -125,5 +125,13 @@ describe "Punto 1,balneario" {
 
     assert.notThat(bal.esDivertido())
   }
+}
 
+//Punto 2
+
+
+describe "name" {
+  test "description" {
+    
+  }
 }
