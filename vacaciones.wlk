@@ -77,7 +77,7 @@ object lugarRaro {
 
 class PreferenciaCombinada{
   var property preferencias =[]
-  method quiereIrA(lugar) = preferencias.all{preferencia => preferencia.quiereIrA(lugar)}
+  method quiereIrA(lugar) = preferencias.any{preferencia => preferencia.quiereIrA(lugar)}
 }
 
 //Punto 3
